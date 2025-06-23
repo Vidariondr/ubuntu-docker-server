@@ -1,0 +1,15 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    devices:
+      - "/dev/zigbee-coordinator:/dev/ttyUSB1"
+    volumes:
+      - "${DOCKERDIR}/appdata/homeassistant:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/run/dbus:/run/dbus:ro"
+    environment:
+      - TZ=${TZ}

@@ -1,0 +1,27 @@
+services:
+  fileflows:
+    image: revenz/fileflows
+    container_name: fileflows
+    networks:
+      docker_network:
+        ipv4_address: ${IP_FILEFLOWS}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "${FILEFLOWS_EXT_PORT}:${FILEFLOWS_INT_PORT}"
+    runtime: nvidia
+    environment:
+      TempPathHost: 1
+      NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility"
+      NVIDIA_VISIBLE_DEVICES: "all"
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "${DOCKERDIR}/appdata/fileflows/tmp:/temp"
+      - "${DOCKERDIR}/appdata/fileflows/Data:/app/Data"
+      - "${DOCKERDIR}/appdata/fileflows/Logs:/app/Logs"
+      - "${DOCKERDIR}/appdata/fileflows/common:/app/common"
+      - "${DATADIR}/data/media:/jellyfin-media"

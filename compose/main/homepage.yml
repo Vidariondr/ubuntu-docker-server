@@ -1,0 +1,20 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+      docker_network:
+        ipv4_address: ${IP_HOMEPAGE}
+      socket_proxy:
+    ports:
+      - "${HOMEPAGE_PORT}:${HOMEPAGE_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/homepage:/app/config"
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: "homepage:${HOMEPAGE_PORT},${IP_SERVER}:${HOMEPAGE_PORT}"
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}

@@ -1,0 +1,19 @@
+services:
+  silverbullet:
+    networks:
+      docker_network:
+        ipv4_address: ${IP_SILVERBULLET}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    image: ghcr.io/silverbulletmd/silverbullet:v2
+    container_name: silverbullet
+    ports:
+      - "${SILVERBULLET_EXT_PORT}:${SILVERBULLET_INT_PORT}"
+    volumes:
+      - "${DATADIR}/data/silverbullet/space:/space"
+    environment:
+      SB_USER: ${SILVERBULLET_CREDS}
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}

@@ -1,0 +1,21 @@
+services:
+  mkvtoolnix:
+    image: jlesage/mkvtoolnix
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    container_name: mkvtoolnix
+    networks:
+      docker_network:
+        ipv4_address: ${IP_MKVTOOLNIX}
+    ports:
+      - "${MKVTOOLNIX_PORT}:${MKVTOOLNIX_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/mkvtoolnix:/config:rw"
+      - "${DATADIR}/data/media:/storage:rw"
+    environment:
+      USER_ID: ${PUID}
+      GROUP_ID: ${PGID}
+      TZ: ${TZ}
+      KEEP_APP_RUNNING: 1
+      DARK_MODE: 1

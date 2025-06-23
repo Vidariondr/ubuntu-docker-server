@@ -1,0 +1,68 @@
+services:
+  klipper:
+    image: mkuf/klipper:latest
+    container_name: klipper
+    networks:
+      docker_network:
+        ipv4_address: ${IP_KLIPPER}
+    restart: unless-stopped
+    privileged: true
+    command: >
+      -I printer_data/run/klipper.tty
+      -a printer_data/run/klipper.sock
+      printer_data/config/printer.cfg
+      -l printer_data/logs/klippy.log
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    volumes:
+      - "/dev:/dev"
+      - "${DOCKERDIR}/appdata/prind/config:/opt/printer_data/config"
+      - "${DOCKERDIR}/appdata/prind/run:/opt/printer_data/run"
+      - "${DOCKERDIR}/appdata/prind/gcode:/opt/printer_data/gcodes"
+      - "${DOCKERDIR}/appdata/prind/log:/opt/printer_data/logs"
+
+  moonraker:
+    image: mkuf/moonraker:latest
+    container_name: moonraker
+    networks:
+      docker_network:
+        ipv4_address: ${IP_MOONRAKER}
+    restart: unless-stopped
+    pid: host
+    depends_on:
+      klipper:
+        condition: service_started
+    ports:
+      - "${MOONRAKER_EXT_PORT}:${MOONRAKER_INT_PORT}"
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    volumes:
+      - "/dev/null:/opt/klipper/config/null"
+      - "/dev/null:/opt/klipper/docs/null"
+      - "/run/dbus:/run/dbus"
+      - "/run/systemd:/run/systemd"
+      - "${DOCKERDIR}/appdata/prind/run:/opt/printer_data/run"
+      - "${DOCKERDIR}/appdata/prind/gcode:/opt/printer_data/gcodes"
+      - "${DOCKERDIR}/appdata/prind/log:/opt/printer_data/logs"
+      - "${DOCKERDIR}/appdata/prind/moonraker/moonraker-db:/opt/printer_data/database"
+      - "${DOCKERDIR}/appdata/prind/config:/opt/printer_data/config"
+
+  fluidd:
+    image: ghcr.io/fluidd-core/fluidd:latest
+    container_name: fluidd
+    networks:
+      docker_network:
+        ipv4_address: ${IP_FLUIDD}
+    ports:
+      - "${FLUIDD_EXT_PORT}:${FLUIDD_INT_PORT}"
+    depends_on:
+      - moonraker
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    restart: unless-stopped

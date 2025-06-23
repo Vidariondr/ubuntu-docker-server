@@ -1,0 +1,22 @@
+services:
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr:7
+    container_name: recyclarr
+    user: ${PUID}:${PGID}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    read_only: true
+    tmpfs: /tmp
+    networks:
+      docker_network:
+        ipv4_address: ${IP_RECYCLARR}
+    volumes:
+      - '${DOCKERDIR}/appdata/recyclarr:/config'
+    environment:
+      TZ: ${TZ}
+      RADARR_API_KEY: ${RADARR_API_KEY}
+      SONARR_API_KEY: ${SONARR_API_KEY}
+      RECYCLARR_APPRISE_URL: ${RECYCLARR_APPRISE_URL}
+      RECYCLARR_SONARR_URL: ${RECYCLARR_SONARR_URL}
+      RECYCLARR_RADARR_URL: ${RECYCLARR_RADARR_URL}

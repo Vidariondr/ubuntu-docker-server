@@ -1,0 +1,20 @@
+services:
+  apprise-api:
+    image: lscr.io/linuxserver/apprise-api:latest
+    container_name: apprise-api
+    networks:
+      docker_network:
+        ipv4_address: ${IP_APPRISE_API}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      APPRISE_ATTACH_SIZE: 25
+    volumes:
+      - "${DOCKERDIR}/appdata/apprise-api/config:/config"
+      - "${DATADIR}/data/apprise-api/attachments:/attachments"
+    ports:
+      - "${APPRISE_API_EXT_PORT}:${APPRISE_API_INT_PORT}"

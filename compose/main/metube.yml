@@ -1,0 +1,17 @@
+services:
+  metube:
+    container_name: metube
+    image: ghcr.io/alexta69/metube
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    network_mode: "service:gluetun"
+    volumes:
+      - "${DATADIR}/data/media:/downloads"
+    environment:
+      UID: ${PUID}
+      GID: ${PGID}
+      DEFAULT_THEME: "dark"
+      DOWNLOAD_DIR: "/downloads"
+      AUDIO_DOWNLOAD_DIR: "/downloads/newmusic"
+      DOWNLOAD_DIRS_INDEXABLE: "true"

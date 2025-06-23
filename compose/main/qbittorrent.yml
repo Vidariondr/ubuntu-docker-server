@@ -1,0 +1,21 @@
+services:
+  qbittorrent:
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    network_mode: "service:gluetun"
+    volumes:
+      - '${DOCKERDIR}/appdata/qbittorrent:/config'
+      - '${DATADIR}/data/torrents:/data/torrents' # Ensure that the downloads folder is set to /data/downloads in qBittorrent
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      UMASK_SET: 002
+    healthcheck: # https://github.com/qdm12/gluetun/issues/641#issuecomment-933856220
+      test: "curl -sf https://example.com  || exit 1"
+      interval: 1m
+      timeout: 30s
+      retries: 1

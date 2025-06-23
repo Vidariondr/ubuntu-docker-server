@@ -1,0 +1,20 @@
+services:
+  sabnzbd:
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    networks:
+      docker_network:
+        ipv4_address: ${IP_SABNZBD}
+    ports:
+      - "${SABNZBD_EXT_PORT}:${SABNZBD_INT_PORT}"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      UMASK_SET: 002
+    volumes:
+      - '${DOCKERDIR}/appdata/sabnzbd/config:/config'
+      - '${DATADIR}/data/usenet:/data/usenet'

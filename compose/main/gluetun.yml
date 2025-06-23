@@ -1,0 +1,31 @@
+services:
+  gluetun:
+    networks:
+      docker_network:
+        ipv4_address: ${IP_GLUETUN}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    ports:
+      - "${GLUETUN_PORT}:${GLUETUN_PORT}"
+      - "${QBITTORRENT_EXT_PORT}:${QBITTORRENT_INT_PORT}"
+      - "${TA_PORT}:${TA_PORT}"
+      - "${TA_ES_PORT}:${TA_ES_PORT}"
+      - "${METUBE_PORT}:${METUBE_PORT}"
+    volumes:
+      - '${DOCKERDIR}/appdata/gluetun:/gluetun'
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      # Wireguard
+      VPN_SERVICE_PROVIDER: surfshark
+      VPN_TYPE: wireguard
+      WIREGUARD_PRIVATE_KEY: ${SURFSHARK_WG_PRIVATE_KEY}
+      WIREGUARD_ADDRESSES: ${GLUETUN_WG_ADDRESSES}

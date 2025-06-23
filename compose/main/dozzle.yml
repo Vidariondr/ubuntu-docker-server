@@ -1,0 +1,18 @@
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+      socket_proxy:
+        ipv4_address: ${IP_DOZZLE_PROXY}
+      docker_network:
+        ipv4_address: ${IP_DOZZLE}
+    ports:
+      - "${DOZZLE_EXT_PORT}:${DOZZLE_INT_PORT}"
+    environment:
+      DOZZLE_LEVEL: "info"
+      DOZZLE_FILTER: "status=running"
+      DOCKER_HOST: "tcp://socket-proxy:${SOCKET_PROXY_PORT}"

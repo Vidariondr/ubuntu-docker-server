@@ -1,0 +1,19 @@
+services:
+  bazarr:
+    container_name: bazarr
+    image: lscr.io/linuxserver/bazarr
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+      docker_network:
+        ipv4_address: ${IP_BAZARR}
+    ports:
+      - "${BAZARR_PORT}:${BAZARR_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/bazarr:/config"
+      - "${DATADIR}/data/media:/data/media"
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}

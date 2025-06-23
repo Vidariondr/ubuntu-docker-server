@@ -1,0 +1,15 @@
+services:
+  autoheal:
+    container_name: autoheal
+    image: willfarrell/autoheal
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    depends_on:
+      - socket-proxy
+    networks:
+      socket_proxy:
+    environment:
+      AUTOHEAL_CONTAINER_LABEL: "all"
+      AUTOHEAL_INTERVAL: "30"
+      DOCKER_SOCK: "tcp://socket-proxy:${SOCKET_PROXY_PORT}"

@@ -1,0 +1,35 @@
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    container_name: miniflux
+    networks:
+      docker_network:
+        ipv4_address: ${IP_MINIFLUX}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "${MINIFLUX_EXT_PORT}:${MINIFLUX_INT_PORT}"
+    depends_on:
+      -  miniflux-db
+    environment:
+      DATABASE_URL: "postgres://${MINIFLUX_DB_USER}:${MINIFLUX_DB_PASSWORD}@miniflux-db/${MINIFLUX_DB_NAME}?sslmode=disable"
+      RUN_MIGRATIONS: 1
+      CLEANUP_ARCHIVE_UNREAD_DAYS: 1
+      CLEANUP_ARCHIVE_READ_DAYS: 2
+
+  miniflux-db:
+    image: postgres:16
+    container_name: miniflux-db
+    networks:
+      docker_network:
+        ipv4_address: ${IP_MINIFLUX_DB}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${MINIFLUX_DB_USER}
+      POSTGRES_PASSWORD: ${MINIFLUX_DB_PASSWORD}
+      POSTGRES_DATABASE: ${MINIFLUX_DB_NAME}
+    volumes:
+      - "${DOCKERDIR}/appdata/miniflux:/var/lib/postgresql/data"

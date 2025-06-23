@@ -1,0 +1,24 @@
+services:
+  navidrome:
+    container_name: navidrome
+    image: deluan/navidrome:latest
+    restart: unless-stopped
+    user: 1000:1000
+    networks:
+      docker_network:
+        ipv4_address: ${IP_NAVIDROME}
+    ports:
+      - "${NAVIDROME_PORT}:${NAVIDROME_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/navidrome:/data"
+      - "${DATADIR}/data/media/music:/music:ro"
+    environment:
+      ND_ENABLEINSIGHTSCOLLECTOR: false
+      ND_SCANNER_SCHEDULE: "1h"
+      ND_LOGLEVEL: "info"  
+      ND_SESSIONTIMEOUT: "168h"
+      ND_LASTFM_APIKEY: ${ND_LASTFM_APIKEY}
+      ND_LASTFM_SECRET: ${ND_LASTFM_SECRET}
+      ND_SPOTIFY_ID: ${ND_SPOTIFY_ID}
+      ND_SPOTIFY_SECRET: ${ND_SPOTIFY_SECRET}
+      ND_ENABLEMEDIAFILECOVERART: "false"

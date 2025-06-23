@@ -1,0 +1,18 @@
+services:
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    networks:
+      docker_network:
+        ipv4_address: ${IP_JELLYSEERR}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "${JELLYSEERR_PORT}:${JELLYSEERR_PORT}"
+    environment:
+      TZ: ${TZ}
+      LOG_LEVEL: info
+    volumes:
+      - "${DOCKERDIR}/appdata/jellyseerr:/app/config"
+

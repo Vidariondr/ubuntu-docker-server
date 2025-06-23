@@ -1,0 +1,19 @@
+services:
+  prowlarr:
+    image: ghcr.io/hotio/prowlarr
+    container_name: prowlarr
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+      docker_network:
+        ipv4_address: ${IP_PROWLARR}
+    ports:
+      - "${PROWLARR_PORT}:${PROWLARR_PORT}"
+    volumes:
+      - '${DOCKERDIR}/appdata/prowlarr:/config'
+      - '/etc/localtime:/etc/localtime:ro'
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
