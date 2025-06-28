@@ -1,6 +1,6 @@
 services:
   radarr:
-    image: lscr.io/linuxserver/radarr:latest # latest tag was causing "Error parsing column 45"
+    image: lscr.io/linuxserver/radarr:5.26.26
     container_name: radarr
     security_opt:
       - no-new-privileges:true

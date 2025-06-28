@@ -1,7 +1,7 @@
 services:
   autoheal:
     container_name: autoheal
-    image: willfarrell/autoheal
+    image: willfarrell/autoheal:1.2.0
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped

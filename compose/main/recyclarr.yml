@@ -1,6 +1,6 @@
 services:
   recyclarr:
-    image: ghcr.io/recyclarr/recyclarr:7
+    image: ghcr.io/recyclarr/recyclarr:7.4.1
     container_name: recyclarr
     user: ${PUID}:${PGID}
     security_opt:

@@ -1,6 +1,6 @@
 services:
   readarr:
-    image: hotio/readarr
+    image: hotio/readarr:testing-0.4.18.2805
     container_name: readarr
     security_opt:
       - no-new-privileges:true

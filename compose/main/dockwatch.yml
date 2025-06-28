@@ -1,7 +1,7 @@
 services:
   dockwatch:
     container_name: dockwatch
-    image: ghcr.io/notifiarr/dockwatch:main
+    image: ghcr.io/notifiarr/dockwatch:v0.6.444
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped

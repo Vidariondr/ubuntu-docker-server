@@ -1,6 +1,6 @@
 services:
   klipper:
-    image: mkuf/klipper:latest
+    image: mkuf/klipper:v0.13.0-51-gbfda326c2
     container_name: klipper
     networks:
       docker_network:
@@ -24,7 +24,7 @@ services:
       - "${DOCKERDIR}/appdata/prind/log:/opt/printer_data/logs"
 
   moonraker:
-    image: mkuf/moonraker:latest
+    image: mkuf/moonraker:v0.9.3-77-gccbfd64
     container_name: moonraker
     networks:
       docker_network:
@@ -52,7 +52,7 @@ services:
       - "${DOCKERDIR}/appdata/prind/config:/opt/printer_data/config"
 
   fluidd:
-    image: ghcr.io/fluidd-core/fluidd:latest
+    image: ghcr.io/fluidd-core/fluidd:v1.34.3
     container_name: fluidd
     networks:
       docker_network:
