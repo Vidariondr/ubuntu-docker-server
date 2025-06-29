@@ -1,6 +1,6 @@
 services:
   prowlarr:
-    image: ghcr.io/hotio/prowlarr:release-1.37.0.5076
+    image: linuxserver/prowlarr:1.37.0
     container_name: prowlarr
     security_opt:
       - no-new-privileges:true
