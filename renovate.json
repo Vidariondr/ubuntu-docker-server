@@ -15,6 +15,11 @@
         "^.*\\.yml$",
         "^.*\\.yaml$"
       ],
+      "matchStrings": [
+        "image:\\s*['\"]?(?<depName>[^:]+):(?<currentValue>[^\\s'\"]+)['\"]?",
+        "IMAGE_VERSION\\s*=\\s*['\"]?(?<currentValue>[^'\"\\s]+)['\"]?",
+        "(?<depName>[a-zA-Z0-9-_\\.]+/[a-zA-Z0-9-_\\.]+):(?<currentValue>[^\\s'\"]+)"
+      ],
       "datasourceTemplate": "docker"
     }
   ],
