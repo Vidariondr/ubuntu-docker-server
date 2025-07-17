@@ -4,6 +4,23 @@
     "config:base",
     "docker:enableMajor"
   ],
+  "enabledManagers": [
+    "docker-compose",
+    "dockerfile",
+    "regex"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^.*\\.yml$",
+        "^.*\\.yaml$"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "includePaths": [
+    "**"
+  ],
   "docker": {
     "enabled": true,
     "pinDigests": false
