@@ -1,12 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base",
+    "docker:enableMajor"
   ],
-  "docker-compose": {
-    "fileMatch": [
-      "(^|/)(?:docker-)?compose[^/]*\\.ya?ml$",
-      "(.*)yaml$"
-    ]
+  "docker": {
+    "enabled": true,
+    "pinDigests": false
   }
 }
