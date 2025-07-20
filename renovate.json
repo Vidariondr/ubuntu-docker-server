@@ -12,8 +12,7 @@
   "regexManagers": [
     {
       "fileMatch": [
-        "^.*\\.yml$",
-        "^.*\\.yaml$"
+        "^.*\\.yml$"
       ],
       "matchStrings": [
         "image:\\s*['\"]?(?<depName>[^:]+):(?<currentValue>[^\\s'\"]+)['\"]?"
