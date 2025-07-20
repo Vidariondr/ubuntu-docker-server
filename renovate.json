@@ -16,8 +16,7 @@
     {
       "matchPackageNames": ["hotio/readarr"],
       "versioning": "regex:^testing-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$",
-      "registryUrls": ["https://hotio.dev/"],
-      "datasourceTemplate": "docker"
+      "registryUrls": ["https://hotio.dev/"]
     },
     {
       "matchPackageNames": ["ghcr.io/alexta69/metube"],
