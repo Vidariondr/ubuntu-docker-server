@@ -5,9 +5,7 @@
     "docker:enableMajor"
   ],
   "enabledManagers": [
-    "docker-compose",
-    "dockerfile",
-    "regex"
+    "docker-compose"
   ],
   "regexManagers": [
     {
