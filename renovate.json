@@ -25,6 +25,7 @@
     "**"
   ],
   "docker": {
-    "enabled": true
+    "enabled": true,
+    "pinDigests": false
   }
 }
