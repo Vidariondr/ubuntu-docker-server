@@ -21,7 +21,7 @@
   "includePaths": [
     "**"
   ],
-  "docker-compose": {
+  "docker": {
     "enabled": true
   }
 }
