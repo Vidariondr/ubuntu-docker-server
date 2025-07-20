@@ -7,7 +7,7 @@
   "enabledManagers": [
     "docker-compose"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "managerFilePatterns": [
         "^.*\\.yml$"
