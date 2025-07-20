@@ -47,6 +47,7 @@ include:
   - compose/main/navidrome.yml
   # DOCS
   - compose/main/silverbullet.yml
+  - compose/main/karakeep.yml
   # VPN CONTAINERS
   - compose/main/gluetun.yml
   # - compose/main/qbittorrent.yml
