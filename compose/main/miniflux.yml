@@ -19,7 +19,7 @@ services:
       CLEANUP_ARCHIVE_READ_DAYS: 2
 
   miniflux-db:
-    image: postgres:16
+    image: postgres:17
     container_name: miniflux-db
     networks:
       docker_network:
