@@ -8,9 +8,9 @@
     "docker-compose",
     "regex"
   ],
-  "customManagers": [
+  "regexManagers": [
     {
-      "managerFilePatterns": [
+      "fileMatch": [
         "^.*\\.yml$"
       ],
       "matchStrings": [
