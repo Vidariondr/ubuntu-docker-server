@@ -9,11 +9,11 @@
     "dockerfile",
     "regex"
   ],
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "^.*\\.yml$"
+      "fileMatch": [
+        "^.*\\.yml$",
+        "^.*\\.yaml$"
       ],
       "matchStrings": [
         "image:\\s*['\"]?(?<depName>[^:]+):(?<currentValue>[^\\s'\"]+)['\"]?"
