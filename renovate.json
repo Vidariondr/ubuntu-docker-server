@@ -5,15 +5,12 @@
     "docker:enableMajor"
   ],
   "enabledManagers": [
-    "docker-compose",
-    "dockerfile",
-    "regex"
+    "docker-compose"
   ],
   "regexManagers": [
     {
-      "fileMatch": [
-        "^.*\\.yml$",
-        "^.*\\.yaml$"
+      "managerFilePatterns": [
+        "^.*\\.yml$"
       ],
       "matchStrings": [
         "image:\\s*['\"]?(?<depName>[^:]+):(?<currentValue>[^\\s'\"]+)['\"]?"
@@ -24,8 +21,7 @@
   "includePaths": [
     "**"
   ],
-  "docker": {
-    "enabled": true,
-    "pinDigests": false
+  "docker-compose": {
+    "enabled": true
   }
 }
