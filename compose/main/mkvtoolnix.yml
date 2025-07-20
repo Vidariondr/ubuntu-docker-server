@@ -1,6 +1,6 @@
 services:
   mkvtoolnix:
-    image: jlesage/mkvtoolnix:v24.12.2
+    image: jlesage/mkvtoolnix:v25.07.1
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
