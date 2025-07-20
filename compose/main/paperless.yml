@@ -1,7 +1,7 @@
 services:
   paperless-redis:
     container_name: paperless-redis
-    image: docker.io/library/redis:7
+    image: docker.io/library/redis:8
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
