@@ -18,7 +18,7 @@ services:
       MEILI_MASTER_KEY: ${KARAKEEP_MEILI_MASTER_KEY}
       NEXTAUTH_URL: ${KARAKEEP_NEXTAUTH_URL}
   karakeep-chrome:
-    image: gcr.io/zenika-hub/alpine-chrome:123
+    image: gcr.io/zenika-hub/alpine-chrome:124
     restart: unless-stopped
     container_name: karakeep-chrome
     networks:
