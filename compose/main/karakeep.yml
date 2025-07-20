@@ -32,7 +32,7 @@ services:
       - --remote-debugging-port=9222
       - --hide-scrollbars
   karakeep-meilisearch:
-    image: getmeili/meilisearch:v1.13.3
+    image: getmeili/meilisearch:v1.15.2
     restart: unless-stopped
     container_name: karakeep-meilisearch
     networks:
