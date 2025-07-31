@@ -3,7 +3,7 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    image: bbilly1/tubearchivist:v0.5.4
+    image: bbilly1/tubearchivist:v0.5.5
     container_name: archivist
     network_mode: "service:gluetun"
     volumes:
