@@ -1,0 +1,20 @@
+services:
+  trilium:
+    image: triliumnext/trilium:v0.97.2
+    container_name: trilium
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      docker_network:
+        ipv4_address: ${IP_TRILIUM}
+    restart: unless-stopped
+    environment:
+      TRILIUM_DATA_DIR: /home/node/trilium-data
+      USER_UID: $PUID
+      USED_GID: $PGID
+    ports:
+      - '${TRILIUM_PORT_EXT}:${TRILIUM_PORT_INT}'
+    volumes:
+      - "${DATADIR}/data/media/trilium:/home/node/trilium-data"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
