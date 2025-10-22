@@ -13,3 +13,4 @@ services:
       GID: ${PGID}
       DEFAULT_THEME: "dark"
       DOWNLOAD_DIRS_INDEXABLE: "true"
+      DOWNLOAD_MODE: "sequential"
