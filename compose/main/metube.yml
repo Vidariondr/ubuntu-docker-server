@@ -7,11 +7,9 @@ services:
     restart: unless-stopped
     network_mode: "service:gluetun"
     volumes:
-      - "${DATADIR}/data/media:/downloads"
+      - "${DATADIR}/data/media:/downloads/newmusic"
     environment:
       UID: ${PUID}
       GID: ${PGID}
       DEFAULT_THEME: "dark"
-      DOWNLOAD_DIR: "/downloads"
-      AUDIO_DOWNLOAD_DIR: "/downloads/newmusic"
       DOWNLOAD_DIRS_INDEXABLE: "true"
