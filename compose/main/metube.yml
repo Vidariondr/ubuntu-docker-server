@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     network_mode: "service:gluetun"
     volumes:
-      - "${DATADIR}/data/media:/downloads/newmusic"
+      - "${DATADIR}/data/media/newmusic:/downloads"
     environment:
       UID: ${PUID}
       GID: ${PGID}
