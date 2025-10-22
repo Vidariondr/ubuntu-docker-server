@@ -1,7 +1,7 @@
 services:
   metube:
     container_name: metube
-    image: ghcr.io/alexta69/metube:2025-07-30
+    image: ghcr.io/alexta69/metube:2025.10.15
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
