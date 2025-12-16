@@ -1,7 +1,7 @@
 services:
   firefly:
     container_name: firefly
-    image: fireflyiii/core:version-6.2.21
+    image: fireflyiii/core:version-6.4.14
     security_opt:
       - no-new-privileges:true
     hostname: app
