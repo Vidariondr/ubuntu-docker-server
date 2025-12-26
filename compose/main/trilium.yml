@@ -1,6 +1,6 @@
 services:
   trilium:
-    image: triliumnext/trilium:v0.97.2
+    image: triliumnext/trilium:v0.101.1
     container_name: trilium
     security_opt:
       - no-new-privileges:true
