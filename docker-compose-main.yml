@@ -42,14 +42,9 @@ include:
   - compose/main/prowlarr.yml
   # - compose/main/mkvtoolnix.yml
   - compose/main/filebrowser.yml
-  # RSS
-  - compose/main/miniflux.yml
   # MUSIC
   - compose/main/navidrome.yml
-  # DOCS
-  - compose/main/silverbullet.yml
   - compose/main/trilium.yml
-  - compose/main/karakeep.yml
   # VPN CONTAINERS
   - compose/main/gluetun.yml
   # - compose/main/qbittorrent.yml
@@ -58,6 +53,5 @@ include:
   # HOME AUTOMATION
   - compose/main/homeassistant.yml
   - compose/main/paperless.yml
-  - compose/main/firefly.yml
   # 3D Printing
   - compose/main/fluidd.yml
