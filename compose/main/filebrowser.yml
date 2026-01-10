@@ -1,6 +1,6 @@
 services:
   filebrowser:
-    image: filebrowser/filebrowser:v2.42.5
+    image: filebrowser/filebrowser:v2.54.0
     container_name: filebrowser
     networks:
       docker_network:
