@@ -52,7 +52,7 @@ services:
       - "${DOCKERDIR}/appdata/prind/config:/opt/printer_data/config"
 
   fluidd:
-    image: ghcr.io/fluidd-core/fluidd:v1.34.3
+    image: ghcr.io/fluidd-core/fluidd:v1.36.2
     container_name: fluidd
     networks:
       docker_network:
