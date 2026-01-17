@@ -37,7 +37,7 @@ include:
   - compose/main/radarr.yml
   - compose/main/bazarr.yml
   - compose/main/recyclarr.yml
-  - compose/main/fileflows.yml
+  # - compose/main/fileflows.yml
   # - compose/main/readarr.yml
   - compose/main/prowlarr.yml
   # - compose/main/mkvtoolnix.yml
@@ -54,4 +54,4 @@ include:
   - compose/main/homeassistant.yml
   - compose/main/paperless.yml
   # 3D Printing
-  - compose/main/fluidd.yml
+  # - compose/main/fluidd.yml
