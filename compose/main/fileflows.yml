@@ -1,6 +1,6 @@
 services:
   fileflows:
-    image: revenz/fileflows:25.12
+    image: revenz/fileflows:26.01
     container_name: fileflows
     networks:
       docker_network:
