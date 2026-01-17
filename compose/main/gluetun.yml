@@ -6,7 +6,7 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped 
-    image: qmcgaw/gluetun:v3.40
+    image: qmcgaw/gluetun:v3.41
     container_name: gluetun
     cap_add:
       - NET_ADMIN
