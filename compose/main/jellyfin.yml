@@ -1,6 +1,6 @@
 services:
   jellyfin:
-    image: jellyfin/jellyfin:10.10.7
+    image: jellyfin/jellyfin:10.11.5
     container_name: jellyfin
     networks:
       docker_network:
@@ -14,14 +14,14 @@ services:
     environment:
       UMASK_SET: 022
       TZ: ${TZ}
-    runtime: nvidia
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+        #    runtime: nvidia
+        #    deploy:
+        #      resources:
+        #        reservations:
+        #          devices:
+        #            - driver: nvidia
+        #              count: all
+        #              capabilities: [gpu]
     volumes:
       - "${DOCKERDIR}/appdata/jellyfin:/config"
       - "${DATADIR}/data/media:/data/media"
