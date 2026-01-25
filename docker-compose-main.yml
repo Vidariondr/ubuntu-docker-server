@@ -19,7 +19,7 @@ networks:
 include:
   # CORE
   - compose/main/socket-proxy.yml  
-  - compose/main/dockwatch.yml
+  - compose/main/dockhand.yaml
   - compose/main/dozzle.yml
   - compose/main/homepage.yml
   - compose/main/autoheal.yml

@@ -1,0 +1,16 @@
+services:
+  dockhand:
+    image: fnsys/dockhand:v1.0.12
+    container_name: dockhand
+    networks:
+      docker_network:
+        ipv4_address: ${DOCKHAND_IP}
+      socket_proxy:
+        ipv4_address: ${DOCKHAND_PROXY_IP}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "${DOCKHAND_EXT_PORT}:${DOCKHAND_INT_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/dockhand:/app/data"
