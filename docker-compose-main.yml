@@ -23,7 +23,6 @@ include:
   - compose/main/dozzle.yml
   - compose/main/homepage.yml
   - compose/main/apprise-api.yml
-  - compose/main/uptime_kuma.yml
   # NETWORKS
   - compose/main/wg-easy15.yml
   - compose/main/pihole.yml
