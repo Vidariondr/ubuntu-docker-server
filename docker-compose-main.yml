@@ -22,6 +22,7 @@ include:
   - compose/main/dockhand.yaml
   - compose/main/dozzle.yml
   - compose/main/homepage.yml
+  - compose/main/autoheal.yml
   - compose/main/apprise-api.yml
   # NETWORKS
   - compose/main/wg-easy15.yml
