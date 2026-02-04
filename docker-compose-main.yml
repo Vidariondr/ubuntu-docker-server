@@ -36,6 +36,7 @@ include:
   - compose/main/radarr.yml
   - compose/main/bazarr.yml
   - compose/main/recyclarr.yml
+  - compose/main/tracearr.yml
   # - compose/main/fileflows.yml
   # - compose/main/readarr.yml
   - compose/main/prowlarr.yml

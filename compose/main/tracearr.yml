@@ -1,0 +1,70 @@
+services:
+  tracearr:
+    image: ghcr.io/connorgallopo/tracearr:1.4.12
+    container_name: tracearr
+    networks:
+      docker_network:
+        ipv4_address: ${IP_TRACEARR}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    ports:
+      - "${TRACEARR_EXT_PORT}:${TRACEARR_INT_PORT}"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      TZ: ${TZ}
+      DATABASE_URL: "postgres://tracearr:${TRACEARR_DB_PASS}@tracearr-timescale:5432/tracearr"
+      REDIS_URL: "redis://tracearr-redis:6379"
+      JWT_SECRET: ${TRACEARR_JWT_SECRET}
+      COOKIE_SECRET: ${TRACEARR_COOKIE_SECRET}
+    depends_on:
+      tracearr-timescale:
+        condition: service_healthy
+      tracearr-redis:
+        condition: service_healthy
+
+  tracearr-timescale:
+    image: timescale/timescaledb-ha:pg18
+    container_name: tracearr-timescale
+    networks:
+      docker_network:
+        ipv4_address: ${IP_TRACEARR_TIMESCALE}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    shm_size: 512mb
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    command: postgres -c timescaledb.max_tuples_decompressed_per_dml_transaction=0 -c max_locks_per_transaction=4096
+    environment:
+      POSTGRES_USER: "tracearr"
+      POSTGRES_PASSWORD: ${TRACEARR_DB_PASS}
+      POSTGRES_DB: "tracearr"
+    volumes:
+      - "${DATADIR}/data/tracearr/timescale_data:/home/postgres/pgdata/data"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracearr"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  tracearr-redis:
+    image: redis:8-alpine
+    container_name: tracearr-redis
+    networks:
+      docker_network:
+        ipv4_address: ${IP_TRACEARR_REDIS}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    command: redis-server --appendonly yes
+    volumes:
+      - "${DATADIR}/data/tracearr/redis_data:/data"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
