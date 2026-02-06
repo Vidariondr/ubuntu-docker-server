@@ -1,0 +1,19 @@
+services:
+  profilarr:
+    image: santiagosayshey/profilarr:v1.1.4
+    container_name: profilarr
+    networks:
+      docker_network:
+        ipv4_address: ${IP_PROFILARR}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    ports:
+      - "${PROFILARR_PORT}:${PROFILARR_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/profilarr:/config"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK: "022"
+      TZ: ${TZ}
