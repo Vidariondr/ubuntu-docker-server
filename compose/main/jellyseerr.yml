@@ -1,7 +1,8 @@
 services:
   jellyseerr:
-    image: fallenbagel/jellyseerr:2.7.3
+    image: seerr/seerr:v3.0.1
     container_name: jellyseerr
+    init: true
     networks:
       docker_network:
         ipv4_address: ${IP_JELLYSEERR}
