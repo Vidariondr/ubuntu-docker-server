@@ -1,6 +1,6 @@
 services:
   tracearr:
-    image: ghcr.io/connorgallopo/tracearr:1.4.12
+    image: ghcr.io/connorgallopo/tracearr:1.4.17
     container_name: tracearr
     networks:
       docker_network:
