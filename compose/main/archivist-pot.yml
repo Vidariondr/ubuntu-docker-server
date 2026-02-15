@@ -1,0 +1,13 @@
+services:
+  archivist-pot:
+    image: brainicism/bgutil-ytdlp-pot-provider
+    container_name: archivist-pot
+    networks:
+      docker_network:
+        ipv4_address: ${IP_ARCHIVIST_POT}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    init: true
+    ports:
+      - "${ARCHIVIST_POT_PORT}:${ARCHIVIST_POT_PORT}"

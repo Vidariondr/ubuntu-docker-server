@@ -49,6 +49,7 @@ include:
   - compose/main/gluetun.yml
   # - compose/main/qbittorrent.yml
   - compose/main/tubearchivist.yml
+  - compose/main/archivist-pot.yml
   - compose/main/metube.yml
   # HOME AUTOMATION
   - compose/main/homeassistant.yml
