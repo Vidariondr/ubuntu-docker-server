@@ -37,7 +37,6 @@ include:
   - compose/main/bazarr.yml
   - compose/main/profilarr.yml
   - compose/main/tracearr.yml
-  # - compose/main/fileflows.yml
   # - compose/main/readarr.yml
   - compose/main/prowlarr.yml
   # - compose/main/mkvtoolnix.yml
@@ -47,12 +46,9 @@ include:
   - compose/main/trilium.yml
   # VPN CONTAINERS
   - compose/main/gluetun.yml
-  # - compose/main/qbittorrent.yml
   - compose/main/tubearchivist.yml
   - compose/main/archivist-pot.yml
   - compose/main/metube.yml
   # HOME AUTOMATION
   - compose/main/homeassistant.yml
   - compose/main/paperless.yml
-  # 3D Printing
-  # - compose/main/fluidd.yml
