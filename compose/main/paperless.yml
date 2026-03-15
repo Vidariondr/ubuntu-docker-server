@@ -29,7 +29,7 @@ services:
 
   paperless:
     container_name: paperless
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.20.8
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.20.10
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
