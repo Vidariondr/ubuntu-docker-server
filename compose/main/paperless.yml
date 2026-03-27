@@ -81,7 +81,7 @@ services:
 
   paperless-tika:
     container_name: paperless-tika
-    image: docker.io/apache/tika:3.2.3.0
+    image: docker.io/apache/tika:3.3.0.0
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
