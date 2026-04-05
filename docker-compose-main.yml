@@ -27,6 +27,7 @@ include:
   # NETWORKS
   - compose/main/wg-easy15.yml
   - compose/main/pihole.yml
+  - compose/main/speedtest-tracker.yml
   # DOWNLOADERS
   - compose/main/sabnzbd.yml
   # MEDIA

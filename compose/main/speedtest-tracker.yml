@@ -1,0 +1,22 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:1.13.12
+    container_name: speedtest-tracker
+    networks:
+      docker_network:
+        ipv4_address: ${IP_SPEED}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "${SPEED_EXT_PORT}:${SPEED_INT_PORT}"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      APP_KEY: ${SPEED_KEY}
+      APP_URL: "https://speedtest.example.com"
+      APP_TIMEZONE: ${TZ}
+      DISPLAY_TIMEZONE: ${TZ}
+      DB_CONNECTION: sqlite
+    volumes:
+      - "${DOCKERDIR}/appdata/speedtest-tracker:/config"
