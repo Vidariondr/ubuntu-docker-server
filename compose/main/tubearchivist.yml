@@ -20,6 +20,7 @@ services:
       TA_BACKEND_PORT: ${TA_BACKEND_PORT}
       TA_USERNAME: ${TA_USERNAME}
       TA_PASSWORD: ${TA_PASSWORD}
+      TA_AUTO_UPDATE_YTDLP: release
       TZ: ${TZ}
     depends_on:
       - archivist-es
