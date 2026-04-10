@@ -18,5 +18,6 @@ services:
       APP_TIMEZONE: ${TZ}
       DISPLAY_TIMEZONE: ${TZ}
       DB_CONNECTION: sqlite
+      SPEEDTEST_SCHEDULE: "6 */2 * * *"
     volumes:
       - "${DOCKERDIR}/appdata/speedtest-tracker:/config"
