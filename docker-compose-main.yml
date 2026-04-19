@@ -42,6 +42,7 @@ include:
   - compose/main/prowlarr.yml
   # - compose/main/mkvtoolnix.yml
   - compose/main/filebrowser.yml
+  - compose/main/syncthing.yml
   # MUSIC
   - compose/main/navidrome.yml
   - compose/main/trilium.yml

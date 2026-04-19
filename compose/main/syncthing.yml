@@ -1,0 +1,18 @@
+services:
+  syncthing:
+    image: syncthing/syncthing:2.0.16
+    container_name: syncthing
+    security_opt:
+      - no-new-privileges:true
+    network_mode: host
+    restart: unless-stopped 
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+    volumes:
+      - "${DATADIR}/data/media/music:/var/syncthing"
+    healthcheck:
+      test: curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
+      interval: 1m
+      timeout: 10s
+      retries: 3
