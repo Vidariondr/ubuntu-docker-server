@@ -23,6 +23,7 @@ services:
     ports:
       - ${WG_EASY_PORT}:${WG_EASY_PORT}/udp
       - ${WG_EASY_UI_PORT}:${WG_EASY_UI_PORT}/tcp
+      - ${SYNCTHING_PORT}:${SYNCTHING_PORT}
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
