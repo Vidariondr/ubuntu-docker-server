@@ -1,6 +1,6 @@
 services:
   syncthing:
-    image: syncthing/syncthing:2.0.16
+    image: syncthing/syncthing:2.1.0
     container_name: syncthing
     security_opt:
       - no-new-privileges:true
