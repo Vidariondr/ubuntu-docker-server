@@ -1,6 +1,6 @@
 services:
   profilarr:
-    image: ghcr.io/dictionarry-hub/profilarr:2.0.0
+    image: ghcr.io/dictionarry-hub/profilarr:2.0.4
     container_name: profilarr
     networks:
       docker_network:
