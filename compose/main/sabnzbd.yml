@@ -3,7 +3,7 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    image: lscr.io/linuxserver/sabnzbd:5.0.3
+    image: lscr.io/linuxserver/sabnzbd:5.0.4
     container_name: sabnzbd
     networks:
       docker_network:
