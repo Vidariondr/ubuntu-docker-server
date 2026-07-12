@@ -34,7 +34,9 @@ include:
   - compose/main/jellyfin.yml
   - compose/main/jellyseerr.yml
   - compose/main/sonarr.yml
+  - compose/main/sonarr_anime.yml
   - compose/main/radarr.yml
+  - compose/main/radarr_anime.yml
   - compose/main/bazarr.yml
   - compose/main/profilarr.yml
   - compose/main/tracearr.yml
