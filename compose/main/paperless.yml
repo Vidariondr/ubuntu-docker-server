@@ -52,8 +52,10 @@ services:
       USERMAP_UID: ${PUID}
       USERMAP_GID: ${PGID}
       PAPERLESS_TIME_ZONE: ${TZ}
+      PAPERLESS_SECRET_KEY: ${PAPERLESS_SECRET_KEY}
       PAPERLESS_OCR_LANGUAGES: "pol"
       PAPERLESS_REDIS: "redis://paperless-redis:${PAPERLESS_REDIS_PORT}"
+      PAPERLESS_DBENGINE: "postgresql"
       PAPERLESS_DBHOST: "paperless-db"
       PAPERLESS_TIKA_ENABLED: "1"
       PAPERLESS_TIKA_GOTENBERG_ENDPOINT: "http://paperless-gotenberg:${PAPERLESS_GOTENBERG_EXT_PORT}"
