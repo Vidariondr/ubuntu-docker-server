@@ -5,8 +5,6 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
-    devices:
-      - "/dev/zigbee-coordinator:/dev/ttyUSB1"
     volumes:
       - "${DOCKERDIR}/appdata/homeassistant:/config"
       - "/etc/localtime:/etc/localtime:ro"
