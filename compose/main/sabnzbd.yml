@@ -5,11 +5,7 @@ services:
     restart: unless-stopped
     image: lscr.io/linuxserver/sabnzbd:5.0.4
     container_name: sabnzbd
-    networks:
-      docker_network:
-        ipv4_address: ${IP_SABNZBD}
-    ports:
-      - "${SABNZBD_EXT_PORT}:${SABNZBD_INT_PORT}"
+    network_mode: "service:gluetun"
     environment:
       PUID: ${PUID}
       PGID: ${PGID}

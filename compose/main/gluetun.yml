@@ -14,6 +14,8 @@ services:
       - /dev/net/tun
     ports:
       - "${GLUETUN_PORT}:${GLUETUN_PORT}"
+      - "${SABNZBD_EXT_PORT}:${SABNZBD_INT_PORT}"
+      - "${PROWLARR_PORT}:${PROWLARR_PORT}"
       - "${QBITTORRENT_EXT_PORT}:${QBITTORRENT_INT_PORT}"
       - "${TA_PORT}:${TA_PORT}"
       - "${TA_ES_PORT}:${TA_ES_PORT}"
