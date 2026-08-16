@@ -39,7 +39,7 @@ include:
   - compose/main/radarr_anime.yml
   - compose/main/bazarr.yml
   - compose/main/profilarr.yml
-    #- compose/main/soulsync.yml
+  - compose/main/soulsync.yml
   - compose/main/tracearr.yml
   # - compose/main/readarr.yml
   - compose/main/prowlarr.yml
