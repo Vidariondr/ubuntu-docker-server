@@ -15,7 +15,7 @@ services:
       ES_URL: "http://localhost:${TA_ES_PORT}"
       ELASTIC_PASSWORD: ${TA_ELASTIC_PASSWORD}
       REDIS_CON: "redis://${IP_TA_REDIS}:${TA_REDIS_PORT}"
-      TA_HOST: ${IP_TA} ${IP_SERVER}
+      TA_HOST: "http://${IP_TA}" "http://${IP_SERVER}"
       TA_PORT: ${TA_PORT}
       TA_BACKEND_PORT: ${TA_BACKEND_PORT}
       TA_USERNAME: ${TA_USERNAME}
