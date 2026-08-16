@@ -15,7 +15,7 @@
     },
     {
       "matchPackageNames": ["ghcr.io/alexta69/metube"],
-      "versioning": "regex:^(?<major>\\d{4}).(?<minor>\\d{2}).(?<patch>\\d{2})$"
+      "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\\d{2})\\.(?<patch>\\d{2})$"
     }
   ],
   "regexManagers": [
