@@ -1,6 +1,6 @@
 services:
   apprise-api:
-    image: lscr.io/linuxserver/apprise-api:1.5.1
+    image: lscr.io/linuxserver/apprise-api:1.5.2
     container_name: apprise-api
     networks:
       docker_network:
