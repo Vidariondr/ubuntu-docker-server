@@ -3,7 +3,7 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    image: lscr.io/linuxserver/sabnzbd:5.1.1
+    image: lscr.io/linuxserver/sabnzbd:5.1.2
     container_name: sabnzbd
     network_mode: "service:gluetun"
     environment:
