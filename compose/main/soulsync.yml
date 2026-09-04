@@ -1,6 +1,6 @@
 services:
   soulsync:
-    image: boulderbadgedad/soulsync:3.3.1
+    image: boulderbadgedad/soulsync:3.3.2
     container_name: soulsync
     security_opt:
       - no-new-privileges:true
