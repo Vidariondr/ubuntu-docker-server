@@ -1,0 +1,25 @@
+services:
+  musicgrabber:
+    image: g33kphr33k/musicgrabber:4.2.2
+    container_name: musicgrabber
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    network_mode: "service:gluetun"
+    volumes:
+      - "${DATADIR}/data/media/music:/music"
+      - "${DOCKERDIR}/appdata/musicgrabber:/data"
+    environment:
+      MUSIC_DIR: "/music"
+      DB_PATH: "/data/music_grabber.db"
+      ENABLE_MUSICBRAINZ: true
+      ENABLE_DEEZER_METADATA: true
+      ENABLE_LYRICS: false
+      LISTEN_PORT: ${MUSICGRABBER_INT_PORT}
+      ACOUSTID_API_KEY: ${ACOUSTID_API_KEY}
+      DEFAULT_CONVERT_AUDIO: true
+      AUDIO_FORMAT: mp3
+      MP3_BITRATE: 320k
+      ENABLE_REPLAYGAIN: true
+      PUID: ${PUID}
+      PGID: ${PGID}

@@ -38,6 +38,7 @@ include:
   - compose/main/radarr.yml
   - compose/main/radarr_anime.yml
   - compose/main/bazarr.yml
+  - compose/main/musicgrabber.yml
   - compose/main/profilarr.yml
   - compose/main/tracearr.yml
   # - compose/main/readarr.yml
