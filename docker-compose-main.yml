@@ -41,9 +41,7 @@ include:
   - compose/main/musicgrabber.yml
   - compose/main/profilarr.yml
   - compose/main/tracearr.yml
-  # - compose/main/readarr.yml
   - compose/main/prowlarr.yml
-  # - compose/main/mkvtoolnix.yml
   - compose/main/filebrowser.yml
   - compose/main/syncthing.yml
   # MUSIC
