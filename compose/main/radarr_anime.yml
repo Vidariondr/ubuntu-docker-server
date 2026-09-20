@@ -1,6 +1,6 @@
 services:
   radarr-anime:
-    image: lscr.io/linuxserver/radarr:6.3.0
+    image: lscr.io/linuxserver/radarr:6.4.4
     container_name: radarr-anime
     security_opt:
       - no-new-privileges:true
