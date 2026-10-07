@@ -1,6 +1,6 @@
 services:
   archivist-pot:
-    image: brainicism/bgutil-ytdlp-pot-provider:2.0.1
+    image: brainicism/bgutil-ytdlp-pot-provider:2.0.2
     container_name: archivist-pot
     networks:
       docker_network:
