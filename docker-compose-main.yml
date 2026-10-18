@@ -46,7 +46,6 @@ include:
   - compose/main/syncthing.yml
   # MUSIC
   - compose/main/navidrome.yml
-  - compose/main/trilium.yml
   # VPN CONTAINERS
   - compose/main/gluetun.yml
   - compose/main/tubearchivist.yml
