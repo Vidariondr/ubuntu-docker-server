@@ -1,0 +1,24 @@
+services:
+  arcane:
+    image: ghcr.io/getarcaneapp/manager:v2.16.1
+    container_name: arcane
+    networks:
+      docker_network:
+        ipv4_address: ${IP_ARCANE}
+      socket_proxy:
+        ipv4_address: ${IP_ARCANE_PROXY}
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "${ARCANE_PORT}:${ARCANE_PORT}"
+    environment:
+      APP_URL: http://${IP_SERVER}:${ARCANE_PORT}
+      ENCRYPTION_KEY: ${ARCANE_KEY}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      DOCKER_HOST: "tcp://socket-proxy:${SOCKET_PROXY_PORT}"
+    volumes:
+      - "${DOCKERDIR}/appdata/arcane:/app/data"
+    cgroup: host
