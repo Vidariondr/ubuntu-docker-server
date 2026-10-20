@@ -43,6 +43,7 @@ include:
   - compose/main/prowlarr.yml
   - compose/main/soulsync.yml
   - compose/main/nextexplorer.yaml
+  - compose/main/suwayomi.yaml
   - compose/main/syncthing.yml
   # MUSIC
   - compose/main/navidrome.yml

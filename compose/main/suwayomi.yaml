@@ -1,0 +1,25 @@
+services:
+  suwayomi:
+    image: ghcr.io/suwayomi/suwayomi-server:v2.4.2422
+    container_name: suwayomi
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    network_mode: "service:gluetun"
+    user: ${PUID}:${PGID}
+    environment:
+      TZ: ${TZ}
+      FLARESOLVERR_ENABLED: true
+      FLARESOLVERR_URL: "http://gluetun:${FLARESOLVERR_PORT}"
+    volumes:
+      - "${DATADIR}/data/suwayomi:/home/suwayomi/.local/share/Tachidesk"
+
+  flaresolverr:
+    image: ghcr.io/thephaseless/byparr:3.0.4
+    container_name: flaresolverr
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped 
+    network_mode: "service:gluetun"
+    environment:
+      TZ: ${TZ}

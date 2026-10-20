@@ -20,6 +20,8 @@ services:
       - "${TA_ES_PORT}:${TA_ES_PORT}"
       - "${METUBE_PORT}:${METUBE_PORT}"
       - "${SOULSYNC_PORT}:${SOULSYNC_PORT}"
+      - "${SUWAYOMI_PORT}:${SUWAYOMI_PORT}"
+      - "${FLARESOLVERR_PORT}:${FLARESOLVERR_PORT}"
     volumes:
       - '${DOCKERDIR}/appdata/gluetun:/gluetun'
     environment:
