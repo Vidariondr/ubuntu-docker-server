@@ -1,6 +1,6 @@
 services:
   suwayomi:
-    image: ghcr.io/suwayomi/suwayomi-server:v2.4.2422
+    image: ghcr.io/suwayomi/suwayomi-server:v2.4.2435
     container_name: suwayomi
     security_opt:
       - no-new-privileges:true
