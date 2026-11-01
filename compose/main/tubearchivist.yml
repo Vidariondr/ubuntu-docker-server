@@ -9,15 +9,13 @@ services:
     volumes:
       - '${DATADIR}/data/media/josh/youtube:/youtube'
       - '${DATADIR}/data/media/tube-archivist/cache:/cache'
+    user: ${PUID}:${PGID}
     environment:
-      HOST_UID: ${PUID}
-      HOST_GID: ${PGID}
       ES_URL: "http://localhost:${TA_ES_PORT}"
       ELASTIC_PASSWORD: ${TA_ELASTIC_PASSWORD}
       REDIS_CON: "redis://${IP_TA_REDIS}:${TA_REDIS_PORT}"
       TA_HOST: http://${IP_TA} http://${IP_SERVER}
       TA_PORT: ${TA_PORT}
-      TA_BACKEND_PORT: ${TA_BACKEND_PORT}
       TA_USERNAME: ${TA_USERNAME}
       TA_PASSWORD: ${TA_PASSWORD}
       TA_AUTO_UPDATE_YTDLP: release
