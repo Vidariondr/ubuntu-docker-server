@@ -50,7 +50,7 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    image: bbilly1/tubearchivist-es:8.19.0
+    image: bbilly1/tubearchivist-es:9.5.5
     container_name: archivist-es
     network_mode: "service:gluetun"
     environment:
