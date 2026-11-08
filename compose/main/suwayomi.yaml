@@ -15,7 +15,7 @@ services:
       - "${DATADIR}/data/suwayomi:/home/suwayomi/.local/share/Tachidesk"
 
   flaresolverr:
-    image: ghcr.io/thephaseless/byparr:3.0.4
+    image: ghcr.io/thephaseless/byparr:3.1.1
     container_name: flaresolverr
     security_opt:
       - no-new-privileges:true
