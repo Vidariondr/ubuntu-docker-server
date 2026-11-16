@@ -1,0 +1,23 @@
+services:
+  slskd:
+    image: slskd/slskd:0.26.2
+    container_name: slskd
+    network_mode: "service:gluetun-slskd"
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      gluetun-slskd: {condition: service_healthy}
+    user: ${PUID}:${PGID}
+    environment:
+      - SLSKD_SLSK_USERNAME=${SLSK_USER}
+      - SLSKD_SLSK_PASSWORD=${SLSK_PASS}
+      - SLSKD_HTTP_PORT=${SLSKD_PORT}
+      - SLSKD_VPN=true
+      - SLSKD_VPN_PORT_FORWARDING=true
+      - SLSKD_VPN_GLUETUN_URL=http://localhost:${GLUETUN_SLSKD_PORT}
+      - SLSKD_VPN_GLUETUN_API_KEY=${GLUETUN_SLSKD_KEY}
+    volumes:
+      - "${DOCKERDIR}/appdata/slskd:/app"
+      - "${DATADIR}/data/media/soulsync/downloads:/app/downloads"
+      - "${DATADIR}/data/media/music:/music:ro"
+    restart: unless-stopped
