@@ -41,6 +41,7 @@ include:
 
   # --- Downloaders ---
   - compose/main/sabnzbd.yml
+  - compose/main/qbittorrent.yaml
 
   # --- Media Servers & Requests ---
   - compose/main/jellyfin.yml
