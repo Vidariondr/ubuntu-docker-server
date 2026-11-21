@@ -1,0 +1,31 @@
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:5.3.0_v2.1.2-ls487
+    container_name: qbittorrent
+    network_mode: "service:gluetun"
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    user: "${PUID}:${PGID}"
+    cap_drop:
+      - ALL
+    environment:
+      - TZ=${TZ}
+      - WEBUI_PORT=${QBIT_PORT}
+    volumes:
+      - "${DOCKERDIR}/appdata/qbittorrent:/config"
+      - "${DATADIR}/data/torrents:/data/torrents"
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    tmpfs:
+      # s6 needs a writable, exec /run; with a non-root user it must be owned
+      # by that user, otherwise no-new-privileges breaks the container.
+      - /run:uid=${PUID},gid=${PGID},exec,mode=755
+      - /tmp:uid=${PUID},gid=${PGID},exec,mode=1777
+    read_only: true
+    stop_grace_period: 30s
+    restart: unless-stopped
