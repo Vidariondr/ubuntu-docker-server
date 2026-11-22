@@ -65,7 +65,7 @@ services:
 
   paperless-gotenberg:
     container_name: paperless-gotenberg
-    image: docker.io/gotenberg/gotenberg:9.5
+    image: docker.io/gotenberg/gotenberg:9.9
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
